@@ -1,0 +1,60 @@
+html{
+    margin: 0;
+    padding: 0;
+    background-color: lemonchiffon;
+}
+
+
+#overlay{
+    display: none;
+}
+
+/* Estilização da caixa principal  */
+
+#lista-pai{
+    background-color: white;
+    height: auto; 
+    width: auto; 
+    top: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.5);
+}
+#lista-titulo{
+    display: flex;
+    height: auto;
+    border-bottom: solid 1px black;
+    padding: 15px;
+    padding-left: 30px;
+    gap: 60%;
+}
+
+/* Estilização individualizada das tarefas */
+
+.box-tarefa{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    background-color: rgb(146, 151, 151);
+    border-top: solid black 0.5px;
+    border-bottom: solid black 0.5px;
+}
+.box-botao{
+    border-right: solid black 0.5px;
+    width:10%
+}
+#box-tarefa-filha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:90%;
+    padding: px;
+}
+
+/* Estilização da caixa de criar tarefa */
+
+#box-criar{
+    display: none;
+}
