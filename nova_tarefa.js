@@ -1,18 +1,29 @@
 function criar(){
     let box_criacao = document.getElementById("box-criar");
     box_criacao.style = 
-    `display:flex; 
-    position: absolute; 
-    top:50%; left: 50%;
-     background-color:red;
-     height:100px; width:100px;
-     z-index: 10;
-    transform: translate(-50%, -50%)`;
+    `display:flex;
+    flex-direction: column;
+    z-index: 10;
+    pointer-events: auto`;
 
     document.body.style.overflow = "hidden";
 
     let overlay = document.getElementById("overlay");
-    overlay.style.cssText = "display:fixed; height: 100%; width: 100%; background-color: rgba(0,0,0,0.5);"
+    overlay.style.cssText = "display: flex; z-index: 9;"
 }
+
+function fechar(){
+    let box_criacao = document.getElementById("box-criar");
+    let overlay = document.getElementById("overlay");
+
+    box_criacao.style = "display: none";
+    overlay.style = "display: none";
+}
+
+// evento para o botão de abrir janela de criação
 let botao_criar = document.getElementById("btn_criar");
 botao_criar.addEventListener("click", criar);
+
+// evento para o botão de fechar janela de criação
+let close_btn = document.getElementsByClassName("btn-close");
+close_btn.addEventListener("click", fechar);

@@ -5,10 +5,6 @@ html{
 }
 
 
-#overlay{
-    display: none;
-}
-
 /* Estilização da caixa principal  */
 
 #lista-pai{
@@ -56,5 +52,33 @@ html{
 /* Estilização da caixa de criar tarefa */
 
 #box-criar{
+    /* Posicionamento da Box */
     display: none;
+    position: absolute; 
+    top:50%; left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+
+    /* Estilização da Box */
+    background-color:rgb(211, 211, 211);
+    height:500px; 
+    width:500px;
+    border: dashed 2px black;
 }
+
+#overlay{
+    display: none;
+    position: fixed;
+    transition: 0.5s;
+    top: 0;
+    left: 0; 
+    height: 100%; 
+    width: 100%; 
+    background-color: rgba(0,0,0,0.5);
+}
+
+#box-criar-formulario{
+    height: 80%; 
+    padding: 20px;
+}
+

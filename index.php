@@ -17,7 +17,24 @@
 
 <body>
     <div id="overlay"></div>
-    <div id="box-criar"></div>
+    <div id="box-criar" class="container">
+        <div id="box-criar-titulo" style="position: relative; width: 100%; height:20%; border-bottom: solid black 1px; display: flex; align-items: center; padding-left: 10px; gap: 80px">
+            <h1>Criar Nova Tarefa</h1>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div> 
+        <div id="box-criar-formulario">
+            <form action="criar-tarefa.php" method="post">
+            <label for="nomeTarefa"><b>Nome da Tarefa:</b></label>
+            <input type="text" class="form-control" name="nomeTarefa" id="nomeTarefa" placeholder="ex: limpar a pia" required>
+            <br>
+            <label for="descricao"><b>Descrição da Tarefa:</b></label>
+            <textarea class="form-control" name="descricao" id="descricao" placeholder="Ex: Usar panos, desinfetante, esponja, etc... "></textarea><br>
+            <label for="prazoFinal"><b>Prazo Final:</b></label>
+            <input type="date" class="form-control" name="prazoFinal" id="prazoFinal" required><br><br>
+            <button id="btn_criar_tarefa" class="form-control btn btn-primary">Criar Tarefa</button>
+            </form>
+        </div>
+    </div>
     <div id="lista-pai" class="position-absolute start-50 translate-middle">
         <div id="lista-titulo">
             <h1 class="text">Minhas tarefas</h1>
