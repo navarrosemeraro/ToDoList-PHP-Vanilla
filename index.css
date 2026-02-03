@@ -1,7 +1,21 @@
 html{
     margin: 0;
     padding: 0;
-    background-color: lemonchiffon;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    padding-top: 50px;
+    background-color: lemonchiffon !important; /* O !important garante a vitória */
+    min-height: 100vh; /* Faz o amarelo cobrir a tela toda */
+}
+
+/* Container que segura a lista e os botões embaixo */
+.main-wrapper {
+    width: 90%;
+    max-width: 800px; /* Define o formato retangular */
 }
 
 
@@ -10,21 +24,21 @@ html{
 #lista-pai{
     background-color: white;
     height: auto; 
-    width: auto;
-    transform: translate(-50%, -50%);
-    top: 300px;
+    width: 100%; /* Ocupa todo o espaço do wrapper */
     border-radius: 10px;
     border: solid 1px black;
     box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.5);
+    overflow: hidden;
     
 }
 #lista-titulo{
     display: flex;
+    justify-content: space-between;
     height: auto;
     border-bottom: solid 1px black;
     padding: 15px;
     padding-left: 30px;
-    gap: 60%;
+    border-bottom: solid 1px black;
 }
 
 /* Estilização individualizada das tarefas */
@@ -38,7 +52,8 @@ html{
     max-height: 200px;
     background-color: rgb(146, 151, 151);
     border-top: solid black 0.5px;
-    border-bottom: solid black 0.5px;
+    min-height: 80px; /* Altura mínima para manter o retângulo */
+    border-bottom: solid 1px #ccc;
 }
 .box-botao{
     border-right: solid black 0.5px;
@@ -46,10 +61,11 @@ html{
 }
 #box-tarefa-filha{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width:90%;
-    padding: px;
+    padding: 15px !important;
 }
 
 /* Estilização da caixa de criar tarefa */
@@ -86,4 +102,13 @@ html{
 }
 
 
-/* Estiliza */
+/* Estilização box-manipula_tarefa */
+
+#box_manipula_tarefa{
+    display: none;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px; /* Espaço entre a lista e os botões */
+    margin-bottom: 50px;
+
+}
