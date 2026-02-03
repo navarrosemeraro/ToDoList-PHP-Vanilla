@@ -10,10 +10,13 @@ html{
 #lista-pai{
     background-color: white;
     height: auto; 
-    width: auto; 
+    width: auto;
+    transform: translate(-50%, -50%);
     top: 300px;
     border-radius: 10px;
+    border: solid 1px black;
     box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.5);
+    
 }
 #lista-titulo{
     display: flex;
@@ -82,3 +85,5 @@ html{
     padding: 20px;
 }
 
+
+/* Estiliza */

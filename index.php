@@ -20,7 +20,7 @@
     <div id="box-criar" class="container">
         <div id="box-criar-titulo" style="position: relative; width: 100%; height:20%; border-bottom: solid black 1px; display: flex; align-items: center; padding-left: 10px; gap: 80px">
             <h1>Criar Nova Tarefa</h1>
-            <button type="button" class="btn-close" aria-label="Close"></button>
+            <button type="button" id="btn-close" class="btn-close" aria-label="Close"></button>
         </div> 
         <div id="box-criar-formulario">
             <form action="criar-tarefa.php" method="post">
@@ -53,20 +53,29 @@
                     $espec = $row["espec"];
                     $data_inicio = $row["data_inicio"];
 
-                    echo ("<div class='input-group mb-3 box-tarefa'>
-                                <div class='input-group-text box-botao' style='background-color:transparent; border: none;'>
-                                <input class='form-check-input mt-0' type='checkbox' value='' aria-label='Checkbox for following text input' style='height: 50px; width:50px; border: solid black 1px'>
-                                </div>
-                                <div id='box-tarefa-filha'> 
-                                    <h1>Tarefa: $nome_tarefa</h1><br> 
-                                    <h3>Comentário: $espec </h3> 
-                                    <h4> Data Inicial: $data_inicio </h4>
-                                </div>
-                            </div>");
+                    // 2. Exibe escapando TUDO na saída para evitar XSS
+                        echo "<div class='input-group mb-3 box-tarefa'>";
+                        echo "  <div class='input-group-text box-botao' style='background-color:transparent; border:none;'>";
+                        echo "    <input class='form-check-input mt-0 checkbox' type='checkbox' value='' aria-label='Checkbox' style='width: 50px; height:50px;'>";
+                        echo "  </div>";
+                        echo "  <div id='box-tarefa-filha'>";
+        
+                    // Usamos htmlspecialchars por ser o padrão moderno mais comum
+                    echo "    <h1>Tarefa: " . htmlspecialchars($nome_tarefa, ENT_QUOTES, 'UTF-8') . "</h1><br>";
+                    echo "    <h3>Comentário: " . htmlspecialchars($espec, ENT_QUOTES, 'UTF-8') . "</h3>";
+                    echo "    <h4>Data Inicial: " . htmlspecialchars($data_inicio, ENT_QUOTES, 'UTF-8') . "</h4>";
+        
+                    echo "  </div>";
+                    echo "</div>";
                 }
             }
             ?>
         </div>
+    </div>
+    <div id="manipula_tarefa" style="gap: 10px">
+        <button type="button" class="btn btn-secondary">Finalizar Tarefa</button>
+        <button type="button" class="btn btn-secondary">Editar Tarefa</button>
+        <button type="button" class="btn btn-secondary">Excluir</button>
     </div>
 </body>
 

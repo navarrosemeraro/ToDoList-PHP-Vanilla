@@ -25,5 +25,5 @@ let botao_criar = document.getElementById("btn_criar");
 botao_criar.addEventListener("click", criar);
 
 // evento para o botão de fechar janela de criação
-let close_btn = document.getElementsByClassName("btn-close");
+let close_btn = document.getElementById("btn-close");
 close_btn.addEventListener("click", fechar);
