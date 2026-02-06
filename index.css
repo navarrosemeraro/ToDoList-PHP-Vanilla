@@ -70,7 +70,7 @@ body {
 
 /* Estilização da caixa de criar tarefa */
 
-#box-criar{
+#box-criar, #box-editar{
     /* Posicionamento da Box */
     display: none;
     position: absolute; 
@@ -96,7 +96,7 @@ body {
     background-color: rgba(0,0,0,0.5);
 }
 
-#box-criar-formulario{
+#box-criar-formulario, #box-editar-formulario{
     height: 80%; 
     padding: 20px;
 }

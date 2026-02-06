@@ -38,6 +38,28 @@
             </form>
         </div>
     </div>
+    <div id="box-editar" class="container">
+        <input type="hidden" id="id_tarefa_edit" name="id">
+        <div id="box-editar-titulo"
+            style="position: relative; width: 100%; height:20%; border-bottom: solid black 1px; display: flex; align-items: center; padding-left: 10px; gap: 80px">
+            <h1>Editar Tarefa</h1>
+            <button type="button" id="btn-close-edit" class="btn-close" aria-label="Close"></button>
+        </div>
+        <div id="box-editar-formulario">
+            <form action="criar-tarefa.php" method="post">
+                <label for="nomeTarefa"><b>Nome da Tarefa:</b></label>
+                <input type="text" class="form-control" name="nomeTarefa" id="nomeTarefa_edit" placeholder="ex: limpar a pia"
+                    required>
+                <br>
+                <label for="descricao"><b>Descrição da Tarefa:</b></label>
+                <textarea class="form-control" name="descricao" id="descricao_edit"
+                    placeholder="Ex: Usar panos, desinfetante, esponja, etc... "></textarea><br>
+                <label for="prazoFinal"><b>Prazo Final:</b></label>
+                <input type="date" class="form-control" name="prazoFinal" id="prazoFinal" required><br><br>
+                <button id="btn_finaliza_edicao" class="form-control btn btn-primary">Finalizar Edição</button>
+            </form>
+        </div>
+    </div>
 
     <div class="main-wrapper">
         <div id="lista-pai">
