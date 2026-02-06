@@ -47,20 +47,22 @@
             </div>
             <div id="lista-tarefas">
                 <?php
-            $stmt = $conn->prepare("SELECT nome_tarefa, espec, data_inicio FROM tarefas WHERE status = 'pendente';");
+            $stmt = $conn->prepare("SELECT id, nome_tarefa, espec, data_inicio, prazo_final FROM tarefas WHERE status = 'pendente';");
             $stmt->execute();
             $result = $stmt->get_result(); //retorna uma tabela como resultado e atribui a $result
 
             /*  IMPRIME O HTML DE ACORDO COM O RESULTADO  */
             if($result && $result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
+                    $id = $row["id"];
                     $nome_tarefa = $row["nome_tarefa"];
                     $espec = $row["espec"];
                     $data_inicio = $row["data_inicio"];
+                    $prazo_final = $row["prazo_final"];
 
                     echo "<div class='input-group mb-3 box-tarefa'>";
                     echo "  <div class='input-group-text box-botao' style='background-color:transparent; border:none;'>";
-                    echo "    <input class='form-check-input mt-0 checkbox' type='checkbox' value='' style='width: 30px; height:30px;'>";
+                    echo "    <input class='form-check-input mt-0 checkbox' type='checkbox' value='$id' style='width: 30px; height:30px;'>";
                     echo "  </div>";
 
                     echo "  <div id='box-tarefa-filha' class='d-flex flex-column align-items-start p-3'>";
@@ -69,6 +71,7 @@
                     echo "    <h4 class='mb-1'><b>Tarefa:</b> " . htmlspecialchars($nome_tarefa, ENT_QUOTES, 'UTF-8') . "</h4>";
                     echo "    <p class='mb-1 text-muted'><b>Comentário:</b> " . htmlspecialchars($espec, ENT_QUOTES, 'UTF-8') . "</p>";
                     echo "    <small><b>Início:</b> " . htmlspecialchars($data_inicio, ENT_QUOTES, 'UTF-8') . "</small>";
+                    echo "    <p><b>Prazo Final:</b> " . htmlspecialchars($prazo_final, ENT_QUOTES, 'UTF-8') . "</p>";
 
                     echo "  </div>";
                     echo "</div>";
@@ -78,9 +81,9 @@
             </div>
         </div>
         <div id="box_manipula_tarefa" class="mt-3">
-            <button type="button" class="btn btn-secondary">Finalizar Tarefa</button>
-            <button type="button" class="btn btn-secondary">Editar Tarefa</button>
-            <button type="button" class="btn btn-secondary">Excluir</button>
+            <button id="btn-finaliza" type="button" class="btn btn-secondary">Finalizar Tarefa</button>
+            <button id="btn-edita" type="button" class="btn btn-secondary">Editar Tarefa</button>
+            <button id="btn-exclui" type="button" class="btn btn-secondary">Excluir</button>
         </div>
     </div>
 </body>
